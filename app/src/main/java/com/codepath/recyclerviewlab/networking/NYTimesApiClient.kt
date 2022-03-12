@@ -15,15 +15,13 @@ import retrofit2.converter.gson.GsonConverterFactory
  *
  *
  * IMPORTANT INSTRUCTIONS BELOW ===========================================================
- * TODO: You have to update API_KEY variable with your own NY-Times developer api key, see
  * https://developer.nytimes.com/get-started to create your own developer account,
  * after copy and paste the API key under your Account -> Apps -> <Your App> -> API Keys
  *
  * You will also need to authorize "Article Search API" in your developer App
 </Your> */
 
-// TODO: Place the below API key with your own generated key
-private const val API_KEY = "<Add API KEY HERE>"
+private const val API_KEY = "7Gd9X1ZYxP8n8i3VUu3g07X95HJ75IGW"
 
 private const val API_FILTER = "headline, web_url, snippet, pub_date, word_count, print_page, print_section, section_name"
 private const val BEGIN_DATE = "20100101"
