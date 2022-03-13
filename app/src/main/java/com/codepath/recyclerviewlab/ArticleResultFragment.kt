@@ -63,8 +63,8 @@ class ArticleResultFragment: Fragment() {
         client.getArticlesByQuery(object: CallbackResponse<List<Article>>{
             override fun onSuccess(model: List<Article>) {
                 val adapter = recyclerView?.adapter as ArticleResultsRecyclerViewAdapter
-                adapter?.setNewArticles(model)
-                adapter?.notifyDataSetChanged()
+                adapter.setNewArticles(model)
+                adapter.notifyDataSetChanged()
                 progressSpinner?.hide()
             }
 

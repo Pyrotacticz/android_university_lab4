@@ -1,11 +1,15 @@
 package com.codepath.recyclerviewlab
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.recyclerviewlab.models.Article
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ArticleResultsRecyclerViewAdapter :
     RecyclerView.Adapter<ArticleResultsRecyclerViewAdapter.ArticleViewHolder>() {
@@ -25,9 +29,15 @@ class ArticleResultsRecyclerViewAdapter :
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article: Article = articleList[position]
-        holder.tvPubDate.text = article.publishDate
         holder.tvHeadline.text = article.headline?.main
         holder.tvSnippet.text = article.snippet
+        holder.tvPubDate.text = article.publishDate
+        try {
+            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH)
+            holder.tvPubDate.text = sdf.parse(article.publishDate).toString()
+        } catch (e: Exception) {
+            Log.e("publishDate", e.toString())
+        }
     }
 
     override fun getItemCount(): Int {
